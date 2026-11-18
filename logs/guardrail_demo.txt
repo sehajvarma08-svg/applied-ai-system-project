@@ -1,0 +1,35 @@
+
+### A. RAG: in-domain query  search_knowledge('studying late at night', top_k=2)
+[listening_contexts.md > Late-night driving]
+Night drives suit mid energy (0.5-0.7), a steady 100-120 BPM pulse and a "moody" or "dark" feel. Synthwave and electronic are the natural genres; hip hop also works.
+
+[listening_contexts.md > Studying and deep work]
+Focus music should be low in energy (about 0.3-0.5), mostly instrumental or lyric-light, and steady in tempo (70-95 BPM). Lofi and ambient fit best; the moods "focused" and "chill" are the closest catalog labels. Avoid high-valence, high-energy pop, since lyrics and big hooks pull attention away.
+
+### B. RAG guardrail: gibberish query  search_knowledge('zzqx plorf wibble')
+No relevant guidance found.
+
+### C. Catalog labels  list_catalog_options()
+{"genres": ["ambient", "classical", "country", "edm", "electronic", "folk", "hip hop", "indie pop", "jazz", "latin", "lofi", "metal", "pop", "r&b", "reggae", "rock", "synthwave"], "moods": ["angry", "chill", "confident", "dark", "euphoric", "festive", "focused", "happy", "intense", "laid-back", "melancholic", "moody", "nostalgic", "relaxed", "romantic", "serene"], "song_count": 20}
+
+### D. Scorer: strong match  recommend_songs(lofi, chill, energy=.35, acousticness=.8, k=3)
+[["Library Rain", 99], ["Midnight Coding", 96], ["Spacewalk Thoughts", 79]]
+
+### E. Scorer: thin match (only 1 of 3 results scores above 0)  recommend_songs(k-pop, euphoric, k=3)
+[["Pulse Garden", 67], ["Carnaval Nights", 0], ["Coffee Shop Stories", 0]]
+best match = 67% (mood only); results 2-3 are 0%. The 50% retry rule would NOT fire here; the other two are padding.
+
+### F. Input guardrail: empty preferences  recommend_songs()
+Error: give at least one preference.
+
+### G. Input guardrail: k clamped  recommend_songs(genre='pop', k=999) returns n results
+10
+
+### H. Hallucination guard: grounded answer  ungrounded_titles()
+[]
+
+### I. Hallucination guard: answer mentions unreturned catalog song
+['Gym Hero']
+
+### J. Loop cap
+MAX_ITERATIONS = 8

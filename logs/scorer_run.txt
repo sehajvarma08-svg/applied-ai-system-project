@@ -1,0 +1,41 @@
+
+============================================================
+                    TOP RECOMMENDATIONS                     
+         Profile: genre=pop, mood=happy, energy=0.8         
+============================================================
+
+#1  Sunrise City  by Neon Echo
+    genre=pop / mood=happy
+    Score: 4.96 / 5.0  [####################]
+    Reasons:
+      - mood match (+2.0)
+      - genre match (+1.0)
+      - energy close (+1.96)
+
+#2  Rooftop Lights  by Indigo Parade
+    genre=indie pop / mood=happy
+    Score: 3.92 / 5.0  [################----]
+    Reasons:
+      - mood match (+2.0)
+      - energy close (+1.92)
+
+#3  Gym Hero  by Max Pulse
+    genre=pop / mood=intense
+    Score: 2.74 / 5.0  [###########---------]
+    Reasons:
+      - genre match (+1.0)
+      - energy close (+1.74)
+
+#4  Concrete Psalms  by Verse Theory
+    genre=hip hop / mood=confident
+    Score: 1.96 / 5.0  [########------------]
+    Reasons:
+      - energy close (+1.96)
+
+#5  Carnaval Nights  by Luz Moreira
+    genre=latin / mood=festive
+    Score: 1.92 / 5.0  [########------------]
+    Reasons:
+      - energy close (+1.92)
+
+============================================================
